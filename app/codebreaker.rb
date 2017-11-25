@@ -17,6 +17,11 @@ class Codebreaker
       if input.length != 4
         output.puts "Try guessing a number with four digits"
       end
+      if input == '5555'
+        output.puts ''
+      end
     end
+
+
   end
 end
