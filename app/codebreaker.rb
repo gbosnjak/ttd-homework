@@ -14,26 +14,24 @@ class Codebreaker
     end
 
     def guess(input)
-      first_number_input = input[0]
-      first_number_secret = @secret_number[0]
+      hint = ''
 
       if input.length != 4
         output.puts "Try guessing a number with four digits"
+        return
       end
 
-      if input == '5555'
-        output.puts ''
+      for number in 0..3
+        current_input = input[number]
+        current_secret = @secret_number[number]
+        if current_input == current_secret
+          hint += '+'
+        elsif @secret_number.include? current_input
+          hint += '-'
+        end
       end
 
-      if @secret_number.include? first_number_input
-        output.puts '-'
-      end
-
-      if first_number_input == first_number_secret
-        output.puts '+'
-      end
+      output.puts hint
     end
-
-
   end
 end
