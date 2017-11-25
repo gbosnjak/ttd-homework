@@ -31,7 +31,7 @@ class Codebreaker
         end
       end
 
-      output.puts hint
+      output.puts hint.split('').sort.join
     end
   end
 end
