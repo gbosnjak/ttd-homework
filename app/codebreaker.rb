@@ -21,14 +21,17 @@ class Codebreaker
         return
       end
 
+      matched_numbers = []
+
       for number in 0..3
         current_input = input[number]
         current_secret = @secret_number[number]
         if current_input == current_secret
           hint += '+'
-        elsif @secret_number.include? current_input
+        elsif (@secret_number.include? current_input) && (!matched_numbers.include? current_input)
           hint += '-'
         end
+        matched_numbers << current_input
       end
 
       output.puts hint.split('').sort.join
